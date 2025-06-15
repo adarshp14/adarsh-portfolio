@@ -350,7 +350,7 @@ export default function Home() {
 
         {/* Tech Stack Section */}
         <motion.section 
-          className="mb-4 pb-8"
+          className="mb-4"
           variants={itemVariants}
         >
           <motion.h2 
@@ -366,23 +366,15 @@ export default function Home() {
           >
             {techStack.map((tech, index) => {
               const IconComponent = tech.icon;
-              // Calculate if icon is in bottom row for smart tooltip positioning (SSR-safe)
-              const colsPerRow = typeof window !== 'undefined' 
-                ? (window.innerWidth >= 1024 ? 10 : window.innerWidth >= 768 ? 8 : 6)
-                : 6; // Default to smallest grid during SSR
-              const totalRows = Math.ceil(techStack.length / colsPerRow);
-              const currentRow = Math.floor(index / colsPerRow);
-              const isBottomRow = currentRow === totalRows - 1;
               
               return (
                 <motion.div
                   key={index}
-                  className="group relative flex flex-col items-center"
+                  className="flex flex-col items-center space-y-1"
                   variants={iconVariants}
                   whileHover={{ 
-                    scale: 1.2,
-                    rotate: [0, -10, 10, 0],
-                    transition: { duration: 0.4 }
+                    scale: 1.05,
+                    transition: { duration: 0.2 }
                   }}
                   custom={index}
                 >
@@ -400,10 +392,10 @@ export default function Home() {
                     />
                   </motion.div>
                   
-                  {/* Smart Tooltip Positioning */}
-                  <div className={`absolute ${isBottomRow ? 'bottom-full mb-2' : 'top-full mt-2'} left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-30 border border-gray-700 pointer-events-none`}>
+                  {/* Always visible label - mobile and desktop friendly */}
+                  <span className="text-xs text-gray-400 font-medium text-center leading-tight">
                     {tech.name}
-                  </div>
+                  </span>
                 </motion.div>
               );
             })}
