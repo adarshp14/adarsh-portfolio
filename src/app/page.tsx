@@ -116,23 +116,23 @@ const ExperienceCounter = () => {
 
   return (
     <motion.section 
-      className="mb-6 text-center"
+      className="mb-4 text-center"
       variants={itemVariants}
     >
       <motion.h2 
-        className="text-xl font-semibold text-white text-center mb-4"
+        className="text-xl font-semibold text-white text-center mb-3"
         variants={itemVariants}
       >
         Experience
       </motion.h2>
       
       <motion.div 
-        className="mb-4"
+        className="mb-3"
         variants={counterVariants}
         initial="hidden"
         animate="visible"
       >
-        <div className="grid grid-cols-3 md:grid-cols-6 gap-3 justify-items-center mb-3">
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-2 justify-items-center mb-2">
           {[
             { value: timeElapsed.years, label: 'Years' },
             { value: timeElapsed.months, label: 'Months' },
@@ -147,7 +147,7 @@ const ExperienceCounter = () => {
               variants={digitVariants}
             >
               <motion.div 
-                className="bg-gradient-to-br from-blue-600/20 to-purple-600/20 backdrop-blur-sm border border-gray-700/50 rounded-lg p-2 min-w-[50px]"
+                className="bg-gradient-to-br from-blue-600/20 to-purple-600/20 backdrop-blur-sm border border-gray-700/50 rounded-lg p-1.5 min-w-[45px]"
                 animate={{ 
                   scale: item.label === 'Seconds' ? [1, 1.05, 1] : 1,
                 }}
@@ -158,9 +158,9 @@ const ExperienceCounter = () => {
                 }}
               >
                 <motion.span 
-                  className="text-sm md:text-base font-bold text-white block"
+                  className="text-xs md:text-sm font-bold text-white block"
                   key={item.value}
-                  initial={{ y: -5, opacity: 0 }}
+                  initial={{ y: -3, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.2 }}
                 >
@@ -174,7 +174,7 @@ const ExperienceCounter = () => {
       </motion.div>
       
       <motion.p 
-        className="text-gray-300 text-sm leading-relaxed max-w-md mx-auto"
+        className="text-gray-300 text-xs leading-relaxed max-w-md mx-auto"
         variants={itemVariants}
       >
         While you&apos;re reading this, I&apos;m gaining experience solving some complex task. Hit me up if you need help.
@@ -224,18 +224,18 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
       <motion.div 
-        className="max-w-2xl mx-auto px-6 py-6 md:py-10"
+        className="max-w-2xl mx-auto px-6 py-4 md:py-6"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         {/* Profile Section */}
         <motion.section 
-          className="flex flex-col items-center text-center mb-5"
+          className="flex flex-col items-center text-center mb-4"
           variants={itemVariants}
         >
           <motion.div 
-            className="relative mb-4"
+            className="relative mb-3"
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
@@ -250,14 +250,14 @@ export default function Home() {
           </motion.div>
           
           <motion.h1 
-            className="text-2xl font-semibold text-white mb-2"
+            className="text-2xl font-semibold text-white mb-1"
             variants={itemVariants}
           >
             Adarsh Pandey
           </motion.h1>
           
           <motion.p 
-            className="text-gray-400 mb-4 text-sm"
+            className="text-gray-400 mb-3 text-sm"
             variants={itemVariants}
           >
             India
@@ -280,7 +280,7 @@ export default function Home() {
 
         {/* Bio Section */}
         <motion.section 
-          className="text-center mb-5 space-y-3"
+          className="text-center mb-4 space-y-2"
           variants={itemVariants}
         >
           <motion.p 
@@ -344,17 +344,17 @@ export default function Home() {
 
         {/* Divider */}
         <motion.div 
-          className="border-t border-gray-800 my-5"
+          className="border-t border-gray-800 my-4"
           variants={itemVariants}
         ></motion.div>
 
         {/* Tech Stack Section */}
         <motion.section 
-          className="mb-6"
+          className="mb-4"
           variants={itemVariants}
         >
           <motion.h2 
-            className="text-xl font-semibold text-white text-center mb-4"
+            className="text-xl font-semibold text-white text-center mb-3"
             variants={itemVariants}
           >
             Tech Stack
@@ -392,10 +392,7 @@ export default function Home() {
                     />
                   </motion.div>
                   
-                  {/* Tooltip */}
-                  <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-20 border border-gray-700 pointer-events-none">
-                    {tech.name}
-                  </div>
+                  {/* Tooltip - Hidden to prevent overlap */}
                 </motion.div>
               );
             })}
@@ -404,7 +401,7 @@ export default function Home() {
 
         {/* Divider */}
         <motion.div 
-          className="border-t border-gray-800 my-5"
+          className="border-t border-gray-800 my-4"
           variants={itemVariants}
         ></motion.div>
 
@@ -413,26 +410,26 @@ export default function Home() {
 
         {/* Divider */}
         <motion.div 
-          className="border-t border-gray-800 my-5"
+          className="border-t border-gray-800 my-4"
           variants={itemVariants}
         ></motion.div>
 
         {/* Projects Section */}
         <motion.section variants={itemVariants}>
           <motion.h2 
-            className="text-xl font-semibold text-white text-center mb-4"
+            className="text-xl font-semibold text-white text-center mb-3"
             variants={itemVariants}
           >
             I built
           </motion.h2>
           
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"
             variants={containerVariants}
           >
             {/* AI Portrait Studio */}
             <motion.div 
-              className="space-y-2"
+              className="space-y-1"
               variants={itemVariants}
               whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
             >
@@ -461,7 +458,7 @@ export default function Home() {
 
             {/* Universal SQL Agent */}
             <motion.div 
-              className="space-y-2"
+              className="space-y-1"
               variants={itemVariants}
               whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
             >
@@ -481,7 +478,7 @@ export default function Home() {
 
             {/* AgentInsights */}
             <motion.div 
-              className="space-y-2"
+              className="space-y-1"
               variants={itemVariants}
               whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
             >
@@ -501,7 +498,7 @@ export default function Home() {
 
             {/* Deep Research V1 */}
             <motion.div 
-              className="space-y-2"
+              className="space-y-1"
               variants={itemVariants}
               whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
             >
@@ -521,7 +518,7 @@ export default function Home() {
 
             {/* Guardian Crew */}
             <motion.div 
-              className="space-y-2"
+              className="space-y-1"
               variants={itemVariants}
               whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
             >
