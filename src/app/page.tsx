@@ -366,8 +366,10 @@ export default function Home() {
           >
             {techStack.map((tech, index) => {
               const IconComponent = tech.icon;
-              // Calculate if icon is in bottom row for smart tooltip positioning
-              const colsPerRow = window?.innerWidth >= 1024 ? 10 : window?.innerWidth >= 768 ? 8 : 6;
+              // Calculate if icon is in bottom row for smart tooltip positioning (SSR-safe)
+              const colsPerRow = typeof window !== 'undefined' 
+                ? (window.innerWidth >= 1024 ? 10 : window.innerWidth >= 768 ? 8 : 6)
+                : 6; // Default to smallest grid during SSR
               const totalRows = Math.ceil(techStack.length / colsPerRow);
               const currentRow = Math.floor(index / colsPerRow);
               const isBottomRow = currentRow === totalRows - 1;
