@@ -350,7 +350,7 @@ export default function Home() {
 
         {/* Tech Stack Section */}
         <motion.section 
-          className="mb-4"
+          className="mb-4 pb-8"
           variants={itemVariants}
         >
           <motion.h2 
@@ -366,6 +366,12 @@ export default function Home() {
           >
             {techStack.map((tech, index) => {
               const IconComponent = tech.icon;
+              // Calculate if icon is in bottom row for smart tooltip positioning
+              const colsPerRow = window?.innerWidth >= 1024 ? 10 : window?.innerWidth >= 768 ? 8 : 6;
+              const totalRows = Math.ceil(techStack.length / colsPerRow);
+              const currentRow = Math.floor(index / colsPerRow);
+              const isBottomRow = currentRow === totalRows - 1;
+              
               return (
                 <motion.div
                   key={index}
@@ -392,8 +398,8 @@ export default function Home() {
                     />
                   </motion.div>
                   
-                  {/* Tooltip - Fixed positioning */}
-                  <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-30 border border-gray-700 pointer-events-none">
+                  {/* Smart Tooltip Positioning */}
+                  <div className={`absolute ${isBottomRow ? 'bottom-full mb-2' : 'top-full mt-2'} left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-30 border border-gray-700 pointer-events-none`}>
                     {tech.name}
                   </div>
                 </motion.div>
