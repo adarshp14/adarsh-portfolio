@@ -8,8 +8,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Adarsh Pandey - Portfolio",
-  description: "Generalist Engineer, deeply passionate about GenAI. I'm experimenting with AI systems - a Prompt to production builder.",
+  title: "Adarsh Pandey - Generalist Engineer",
+  description: "A Generalist Engineer who thrives wherever a solution is needed. Currently exploring how human intelligence can work with artificial intelligence to create abundance.",
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
