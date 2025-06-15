@@ -392,7 +392,10 @@ export default function Home() {
                     />
                   </motion.div>
                   
-                  {/* Tooltip - Hidden to prevent overlap */}
+                  {/* Tooltip - Fixed positioning */}
+                  <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-30 border border-gray-700 pointer-events-none">
+                    {tech.name}
+                  </div>
                 </motion.div>
               );
             })}
